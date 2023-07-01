@@ -17,7 +17,7 @@ function WineStatistics() {
 
     const statistics = {};
     for (const [className, classFlavanoids] of Object.entries(classData)) {
-      const mean = classFlavanoids.reduce((sum, val) => sum + val, 0) / classFlavanoids.length;
+      const mean = classFlavanoids.reduce((sum, val) => sum + Number(val), 0) / classFlavanoids.length;
 
       const sortedFlavanoids = classFlavanoids.sort((a, b) => a - b);
       const middleIndex = Math.floor(sortedFlavanoids.length / 2);
@@ -102,7 +102,7 @@ function WineStatistics() {
   const gammaStatistics = calculateGammaStatistics();
 
   return (
-    <div>
+    <div className='container'>
       <h2>Flavanoids Statistics</h2>
       <table className="statistics-table">
         <thead>
